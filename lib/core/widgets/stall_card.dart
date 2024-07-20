@@ -29,7 +29,7 @@ class StallCard extends StatelessWidget {
       onTap: onTap,
       child: SizedBox(
         width: double.infinity,
-        height: 40.h,
+        height: 39.h,
         child: Card(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),

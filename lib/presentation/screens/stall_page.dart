@@ -9,6 +9,7 @@ import 'dart:io';
 import 'package:gatherly/presentation/bloc/stall_page_bloc.dart';
 import 'package:gatherly/presentation/screens/image_viewer.dart';
 import 'package:gatherly/presentation/screens/video_player.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:video_thumbnail/video_thumbnail.dart';
 
@@ -259,13 +260,26 @@ class _StallDetailScreenState extends State<StallDetailScreen> {
                 Text(widget.stallName,
                     style: const TextStyle(
                         fontSize: 24, fontWeight: FontWeight.bold)),
-                Text(widget.stallDate),
-                Text(widget.companyName),
+                const SizedBox(
+                  height: 4,
+                ),
+                Text(
+                  widget.companyName,
+                  style: GoogleFonts.roboto(
+                      textStyle: CustomTextStyles.bodyGreyText1),
+                ),
+                const SizedBox(
+                  height: 4,
+                ),
                 StreamBuilder<List<DataStall>>(
                   stream: stallBloc?.mediaPathsStream,
                   builder: (context, snapshot) {
                     final count = snapshot.data?.length ?? 0;
-                    return Text('$count Files');
+                    return Text(
+                      '$count Files',
+                      style: GoogleFonts.roboto(
+                          textStyle: CustomTextStyles.bodyGreyText1),
+                    );
                   },
                 ),
               ],

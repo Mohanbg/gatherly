@@ -26,7 +26,7 @@ class CustomTextStyles {
   );
 
   static const TextStyle bodyGreyText1 = TextStyle(
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: FontWeight.w500,
     color: Colors.grey,
   );
