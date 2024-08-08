@@ -9,6 +9,6 @@ class MainActivity : FlutterActivity() {
         flutterEngine
             .platformViewsController
             .registry
-            .registerViewFactory("native_video_view", NativeVideoViewFactory())
+            .registerViewFactory("native_video_view", NativeVideoViewFactory(flutterEngine.dartExecutor.binaryMessenger))
     }
 }

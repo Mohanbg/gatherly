@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
 class NativeVideoView extends StatefulWidget {
   final String videoPath;
 
-const NativeVideoView({super.key,required this.videoPath});
+  NativeVideoView({required this.videoPath});
+
   @override
-  State<NativeVideoView> createState() => _NativeVideoViewState();
+  _NativeVideoViewState createState() => _NativeVideoViewState();
 }
 
 class _NativeVideoViewState extends State<NativeVideoView> {
-  bool isPlaying = true;
+  late MethodChannel _channel;
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +20,9 @@ class _NativeVideoViewState extends State<NativeVideoView> {
         Expanded(
           child: AndroidView(
             viewType: 'native_video_view',
-            key: ValueKey(isPlaying),  // Force re-create when playing/pausing
+            onPlatformViewCreated: _onPlatformViewCreated,
             creationParams: <String, dynamic>{
               'videoPath': widget.videoPath,
-              'play': isPlaying,
             },
             creationParamsCodec: const StandardMessageCodec(),
           ),
@@ -32,16 +31,18 @@ class _NativeVideoViewState extends State<NativeVideoView> {
           padding: const EdgeInsets.all(8.0),
           child: ElevatedButton(
             onPressed: _togglePlayPause,
-            child: Text(isPlaying ? 'Pause' : 'Play'),
+            child: Text('Toggle Play/Pause'),
           ),
         ),
       ],
     );
   }
 
+  void _onPlatformViewCreated(int id) {
+    _channel = MethodChannel('native_video_view_$id');
+  }
+
   void _togglePlayPause() {
-    setState(() {
-      isPlaying = !isPlaying;
-    });
+    _channel.invokeMethod('togglePlayPause');
   }
 }
