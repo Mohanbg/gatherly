@@ -138,7 +138,7 @@ class _StallDetailScreenState extends State<StallDetailScreen> {
                                     if (media.isVideo!) {
                                       Navigator.of(context)
                                           .push(MaterialPageRoute(
-                                        builder: (context) => VideoPlayerScreen(
+                                        builder: (context) => NativeVideoView(
                                             videoPath: media.path ?? ""),
                                       ));
                                     } else {
@@ -265,8 +265,7 @@ class _StallDetailScreenState extends State<StallDetailScreen> {
                 ),
                 Text(
                   widget.companyName,
-                  style: GoogleFonts.roboto(
-                      textStyle: CustomTextStyles.bodyGreyText1),
+                  style: CustomTextStyles.bodyGreyText1,
                 ),
                 const SizedBox(
                   height: 4,
@@ -277,8 +276,7 @@ class _StallDetailScreenState extends State<StallDetailScreen> {
                     final count = snapshot.data?.length ?? 0;
                     return Text(
                       '$count Files',
-                      style: GoogleFonts.roboto(
-                          textStyle: CustomTextStyles.bodyGreyText1),
+                      style: CustomTextStyles.bodyGreyText1,
                     );
                   },
                 ),

@@ -67,36 +67,31 @@ class StallCard extends StatelessWidget {
                       children: [
                         Text(
                           date,
-                          style: GoogleFonts.roboto(
-                              textStyle: CustomTextStyles.bodyGreyText2),
+                          style: CustomTextStyles.bodyGreyText2
                         ),
                         const SizedBox(height: 4),
                         Text(
                           title,
-                          style: GoogleFonts.roboto(
-                              textStyle: CustomTextStyles.subheadline),
+                          style: CustomTextStyles.subheadline
                         ),
                         const SizedBox(height: 4),
                         Text(
                           subtitle,
-                          style: GoogleFonts.roboto(
-                              textStyle: CustomTextStyles.bodyGreyText1),
+                          style:CustomTextStyles.bodyGreyText1
                         ),
                         const SizedBox(height: 4),
                         Row(
                           children: [
                             Text(
                               fileCount,
-                              style: GoogleFonts.roboto(
-                                  textStyle: CustomTextStyles.bodyGreyText1),
+                              style: CustomTextStyles.bodyGreyText1
                             ),
                             const SizedBox(
                               width: 3,
                             ),
-                            Text(
+                            const Text(
                               "files",
-                              style: GoogleFonts.roboto(
-                                  textStyle: CustomTextStyles.bodyGreyText1),
+                              style: CustomTextStyles.bodyGreyText1,
                             ),
                           ],
                         ),
